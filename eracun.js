@@ -138,7 +138,13 @@ var pesmiIzRacuna = function(racunId, callback) {
     Track.TrackId IN (SELECT InvoiceLine.TrackId FROM InvoiceLine, Invoice \
     WHERE InvoiceLine.InvoiceId = Invoice.InvoiceId AND Invoice.InvoiceId = " + racunId + ")",
     function(napaka, vrstice) {
-      console.log(vrstice);
+      //console.log(vrstice);//loči napako od spošne vrstice
+      if(napaka == true){ 
+          callback(false);
+        }
+        else if(napaka == false){
+          callback(vrstice);
+        }
     })
 }
 
@@ -147,13 +153,44 @@ var strankaIzRacuna = function(racunId, callback) {
     pb.all("SELECT Customer.* FROM Customer, Invoice \
             WHERE Customer.CustomerId = Invoice.CustomerId AND Invoice.InvoiceId = " + racunId,
     function(napaka, vrstice) {
-      console.log(vrstice);
+      //console.log(vrstice); enak popravek kot nekaj vrstic višje, potrebno ločiti med napakami
+      if(napaka == true){ 
+          callback(false);
+        }
+        else if(napaka == false){
+          callback(vrstice);
+        }
     })
 }
 
 // Izpis računa v HTML predstavitvi na podlagi podatkov iz baze
 streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
-  odgovor.end();
+  //odgovor.end();
+  var obrazec = new formidable.IncomingForm();
+    
+    obrazec.parse(zahteva, function (prvaNapaka, polja, datoteke) {
+      var drugaNapaka = false;
+      try {
+        pesmiIzRacuna(polja.seznamRacunov, function(pesmi) {
+          if (!pesmi) {
+            odgovor.sendStatus(500);
+          }
+          else{
+            strankaIzRacuna(polja.seznamRacunov, function(stranka) {
+              odgovor.setHeader('content-type', 'text/xml');
+              odgovor.render('eslog', {
+                vizualiziraj: true,
+                postavkeRacuna: pesmi,
+                stranka: stranka[0]
+              })
+            });
+          }  
+        });
+      }  
+      catch (err){
+        drugaNapaka = true;
+      }
+    });
 })
 
 // Izpis računa v HTML predstavitvi ali izvorni XML obliki
