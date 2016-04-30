@@ -167,14 +167,12 @@ var strankaIzRacuna = function(racunId, callback) {
 streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
   //odgovor.end();
   var obrazec = new formidable.IncomingForm();
-    
     obrazec.parse(zahteva, function (prvaNapaka, polja, datoteke) {
       var drugaNapaka = false;
       try {
         pesmiIzRacuna(polja.seznamRacunov, function(pesmi) {
-          if (!pesmi) {
+          if (!pesmi)
             odgovor.sendStatus(500);
-          }
           else{
             strankaIzRacuna(polja.seznamRacunov, function(stranka) {
               odgovor.setHeader('content-type', 'text/xml');
