@@ -173,51 +173,51 @@
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
-					<NazivPartnerja1><%= stranka.FirstName %> <%= stranka.LastName %></NazivPartnerja1>
-					<NazivPartnerja2><%= stranka.Company %></NazivPartnerja2>
-					<NazivPartnerja3></NazivPartnerja3><!-- 2. nepotrebni vrstici za vpis (pobrišemo le vsebino) -->
-					<NazivPartnerja4></NazivPartnerja4>
+					<NazivPartnerja1>Univerza v Ljubljani, </NazivPartnerja1>
+					<NazivPartnerja2>Fakulteta za računalništvo in informatiko</NazivPartnerja2>
+					<NazivPartnerja3>Laboratorij za </NazivPartnerja3>
+					<NazivPartnerja4>podatkovne tehnologije</NazivPartnerja4>
 				</NazivPartnerja>
 				<Ulica>
-					<Ulica1><%= stranka.Address %></Ulica1>
-					<Ulica2></Ulica2><!-- naslov stranke vedno shranje v le eni spremenljivki -->
-					<Ulica3></Ulica3>
+					<Ulica1>Večna pot </Ulica1>
+					<Ulica2>113</Ulica2>
+					<Ulica3>nadstropje 2, kabinet R2.49</Ulica3>
 				</Ulica>
-				<Kraj><%= stranka.City %></Kraj>
-				<NazivDrzave><%= stranka.Country %></NazivDrzave>
-				<PostnaStevilka><%= stranka.PostalCode %></PostnaStevilka>
-				<KodaDrzave></KodaDrzave><!-- nikjer ne vprašamo o informaciji glede kode države- ne moremo izpisati -->
+				<Kraj>Ljubljana</Kraj>
+				<NazivDrzave>Slovenija</NazivDrzave>
+				<PostnaStevilka>1000</PostnaStevilka>
+				<KodaDrzave>SI</KodaDrzave>
 			</NazivNaslovPodjetja>
 			<FinancniPodatkiPodjetja>
 				<BancniRacun>
-					<StevilkaBancnegaRacuna></StevilkaBancnegaRacuna><!-- Bančni račun ni podan nikjer -->
-					<NazivBanke1></NazivBanke1>
-					<NazivBanke2></NazivBanke2>
-					<BIC></BIC>
+					<StevilkaBancnegaRacuna>SI56020120090111333</StevilkaBancnegaRacuna>
+					<NazivBanke1>Moja banka d.d.</NazivBanke1>
+					<NazivBanke2>Podružnica center</NazivBanke2>
+					<BIC>LJBASI2XXXX</BIC>
 				</BancniRacun>
 			</FinancniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
-				<VrstaPodatkaPodjetja></VrstaPodatkaPodjetja><!-- nikjer ne povprašamo po podjetju -->
-				<PodatekPodjetja></PodatekPodjetja>
+				<VrstaPodatkaPodjetja>VA</VrstaPodatkaPodjetja>
+				<PodatekPodjetja>SI67909027</PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
-				<VrstaPodatkaPodjetja></VrstaPodatkaPodjetja><!-- nikjer ne povprašamo po podjetju -->
-				<PodatekPodjetja></PodatekPodjetja>
+				<VrstaPodatkaPodjetja>GN</VrstaPodatkaPodjetja>
+				<PodatekPodjetja>1627023</PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<ReferencniPodatkiPodjetja>
-				<VrstaPodatkaPodjetja></VrstaPodatkaPodjetja><!-- nikjer ne povprašamo po podjetju -->
-				<PodatekPodjetja></PodatekPodjetja>
+				<VrstaPodatkaPodjetja>IT</VrstaPodatkaPodjetja>
+				<PodatekPodjetja>444-55</PodatekPodjetja>
 			</ReferencniPodatkiPodjetja>
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
-					<ImeOsebe><%= stranka.FirstName %> <%= stranka.LastName %></ImeOsebe><!-- zanima nas ime prejemnika -->
+					<ImeOsebe>Dejan Lavbič</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
-					<StevilkaKomunikacije><%= stranka.Phone %></StevilkaKomunikacije><!-- št. telefona podana na štartu pri registraciji -->
+					<StevilkaKomunikacije>38614798000</StevilkaKomunikacije>
 					<VrstaKomunikacije>TE</VrstaKomunikacije>
 				</Komunikacije>
 				<Komunikacije>
-					<StevilkaKomunikacije><%= stranka.Fax %></StevilkaKomunikacije><!-- št. faksa podana na štartu pri registraciji -->
+					<StevilkaKomunikacije>38612419350</StevilkaKomunikacije>
 					<VrstaKomunikacije>FX</VrstaKomunikacije>
 				</Komunikacije>
 			</KontaktiPodjetja>
