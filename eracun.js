@@ -139,7 +139,12 @@ var pesmiIzRacuna = function(racunId, callback) {
     WHERE InvoiceLine.InvoiceId = Invoice.InvoiceId AND Invoice.InvoiceId = " + racunId + ")",
     function(napaka, vrstice) {
       //console.log(vrstice);//loči napako od spošne vrstice
-        callback(vrstice);
+      if(napaka){ 
+          callback(false);
+        }
+        else {
+          callback(vrstice);
+        }
     })
 }
 
@@ -149,7 +154,12 @@ var strankaIzRacuna = function(racunId, callback) {
             WHERE Customer.CustomerId = Invoice.CustomerId AND Invoice.InvoiceId = " + racunId,
     function(napaka, vrstice) {
       //console.log(vrstice); enak popravek kot nekaj vrstic višje, potrebno ločiti med napakami
-      callback(vrstice);
+      if(napaka){ 
+          callback(false);
+        }
+        else {
+          callback(vrstice);
+        }
     })
 }
 
